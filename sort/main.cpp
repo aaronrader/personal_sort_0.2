@@ -40,6 +40,11 @@ int main(int argc, char* argv[]) {
       numbers.push_back(number);
   }
 
+  //Block to test for a sorted array
+  numbers.clear();
+  for (int i = 0; i < 100; ++i)
+    numbers.push_back(i + 1);
+
   int loops = 0;
   int comparisons = 0;
   int swaps = 0;
