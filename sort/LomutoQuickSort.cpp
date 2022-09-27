@@ -1,11 +1,18 @@
+/*
+* Author:   Aaron Rader
+* Date:     09/2022
+* Project:  sort
+* Summary:  Contains Lomuto's quick sort definition
+*/
+
 #include "Sort.h"
 
-int lomuto_partition(std::vector<int>& arr, int lowIndex, int highIndex, int& loops, int& comparisons, int& swaps) {
+int lomuto_partition(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   int pivot = arr[highIndex];
 
   int currentPosition = lowIndex - 1;
 
-  for (size_t i = lowIndex; i < highIndex; ++i) { //no need to compare pivot to itself
+  for (int i = lowIndex; i < highIndex; ++i) { //no need to compare pivot to itself
     ++loops;
     ++comparisons;
     if (arr[i] <= pivot) {
@@ -24,11 +31,11 @@ int lomuto_partition(std::vector<int>& arr, int lowIndex, int highIndex, int& lo
   return currentPosition;
 }
 
-void lomuto_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, int& loops, int& comparisons, int& swaps) {
+void lomuto_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   if (lowIndex >= highIndex) return;
 
-  int partitionIndex = lomuto_partition(arr, lowIndex, highIndex, loops, comparisons, swaps); //returns the index of the highest
-                                                            //value in the lower array
+  //returns the index of the highest value in the lower array
+  int partitionIndex = lomuto_partition(arr, lowIndex, highIndex, loops, comparisons, swaps);
 
   //sort with lower array
   lomuto_quicksort(arr, lowIndex, partitionIndex - 1, loops, comparisons, swaps);
@@ -37,10 +44,10 @@ void lomuto_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, int& l
 }
 
 //main entry
-std::vector<int> lomuto_quick(std::vector<int> &arr, int& loops, int& comparisons, int& swaps) {
+std::vector<int> lomuto_quick(std::vector<int> &arr, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   if (arr.size() < 2)
     return arr;
 
-  lomuto_quicksort(arr, 0, arr.size() - 1, loops, comparisons, swaps);
+  lomuto_quicksort(arr, 0, static_cast<int>(arr.size()) - 1, loops, comparisons, swaps);
   return arr;
 }

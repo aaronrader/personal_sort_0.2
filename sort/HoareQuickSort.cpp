@@ -1,6 +1,13 @@
+/*
+* Author:   Aaron Rader
+* Date:     09/2022
+* Project:  sort
+* Summary:  Contains Hoare's quick sort definition
+*/
+
 #include "Sort.h"
 
-int hoare_partition(std::vector<int>& arr, int lowIndex, int highIndex, int& loops, int& comparisons, int& swaps) {
+int hoare_partition(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   int leftIndex = lowIndex - 1;
   int rightIndex = highIndex + 1;
   int pivot = arr[(highIndex + lowIndex) / 2];
@@ -26,7 +33,7 @@ int hoare_partition(std::vector<int>& arr, int lowIndex, int highIndex, int& loo
   }
 }
 
-void hoare_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, int& loops, int& comparisons, int& swaps) {
+void hoare_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   if (lowIndex >= highIndex)
     return;
 
@@ -36,10 +43,10 @@ void hoare_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, int& lo
   hoare_quicksort(arr, pivotIndex + 1, highIndex, loops, comparisons, swaps);
 }
 
-std::vector<int> hoare_quick(std::vector<int>& arr, int& loops, int& comparisons, int& swaps) {
+std::vector<int> hoare_quick(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   if (arr.size() < 2)
     return arr;
 
-  hoare_quicksort(arr, 0, arr.size() - 1, loops, comparisons, swaps);
+  hoare_quicksort(arr, 0, static_cast<int>(arr.size()) - 1, loops, comparisons, swaps);
   return arr;
 }

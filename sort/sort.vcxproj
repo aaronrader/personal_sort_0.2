@@ -29,9 +29,6 @@
     <ClCompile Include="LomutoQuickSort.cpp" />
     <ClCompile Include="SelectionSort.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\numbers.txt" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
