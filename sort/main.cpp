@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "sort.h"
+#include "sort.hpp"
 
 void print(stats_t& loops, stats_t& comparisons, stats_t& swaps, bool& sorted) {
   std::cout << "The sort looped " << loops << " times, made " << comparisons << " comparisons, and performed "
