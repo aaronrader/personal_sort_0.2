@@ -5,7 +5,7 @@
 * Summary:  Contains Hoare's quick sort definition
 */
 
-#include "Sort.h"
+#include "sort.hpp"
 
 int hoare_partition(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   int leftIndex = lowIndex - 1;

@@ -5,7 +5,7 @@
 * Summary:  Contains insertion sort definition
 */
 
-#include "sort.h"
+#include "sort.hpp"
 
 std::vector<int> insertion(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   for (int i = 1; i < static_cast<int>(arr.size()); ++i) {

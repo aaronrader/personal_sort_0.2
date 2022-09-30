@@ -5,7 +5,7 @@
 * Summary:  Contains selection sort definition
 */
 
-#include "Sort.h"
+#include "sort.hpp"
 
 std::vector<int> selection(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   for (int i = 0; i < static_cast<int>(arr.size()) - 1; ++i) {

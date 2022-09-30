@@ -5,7 +5,7 @@
 * Summary:  Contains bubble sort definition
 */
 
-#include "sort.h"
+#include "sort.hpp"
 
 std::vector<int> bubble(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
   for (int i = 0; i < static_cast<int>(arr.size()) - 1; ++i) {
