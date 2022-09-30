@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sort.h" />
+    <ClInclude Include="Sort.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BubbleSort.cpp" />
