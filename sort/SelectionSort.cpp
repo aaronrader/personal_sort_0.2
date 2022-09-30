@@ -11,16 +11,14 @@ std::vector<int> selection(std::vector<int>& arr, stats_t& loops, stats_t& compa
   for (int i = 0; i < static_cast<int>(arr.size()) - 1; ++i) {
     ++loops;
     int minIndex = i;
-    bool hasSwapped = false;
     for (int j = i + 1; j < static_cast<int>(arr.size()); ++j) {
       ++loops;
       ++comparisons;
       if (arr[j] < arr[minIndex]) {
         minIndex = j;
-        hasSwapped = true;
       }
     }
-    if (hasSwapped) {
+    if (minIndex != i) {
       ++swaps;
       swap(arr[i], arr[minIndex]);
     }

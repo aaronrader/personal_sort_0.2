@@ -17,7 +17,7 @@ template<typename t> void swap(t& lhs, t& rhs) {
 }
 
 template<typename t> bool isSorted(std::vector<t>& arr) {
-  for (int i = 0; i < static_cast<int>(arr.size()) - 1; ++i) {
+  for (size_t i = 0; i < arr.size() - 1; ++i) {
     if (arr[i] > arr[i + 1])
       return false;
   }

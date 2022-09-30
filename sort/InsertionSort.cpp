@@ -22,6 +22,7 @@ std::vector<int> insertion(std::vector<int>& arr, stats_t& loops, stats_t& compa
     }
     if (j >= 0)
       ++comparisons;
+
     ++swaps;
     arr[j + 1] = key;
   }

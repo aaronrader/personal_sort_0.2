@@ -8,22 +8,22 @@
 #include "sort.hpp"
 
 int hoare_partition(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
-  int leftIndex = lowIndex - 1;
+  int leftIndex = lowIndex - 1; //need to subtract 1 because do loops will increment before testing
   int rightIndex = highIndex + 1;
-  int pivot = arr[(highIndex + lowIndex) / 2];
+  int pivot = arr[(highIndex + lowIndex) / 2]; //any pivot works; using the half way point in this case
 
   while(true) {
     do {
       ++loops;
       ++comparisons;
       ++leftIndex;
-    } while (arr[leftIndex] < pivot);
+    } while (arr[leftIndex] < pivot); //find the first value greater than the pivot
 
     do {
       ++loops;
       ++comparisons;
       --rightIndex;
-    } while (arr[rightIndex] > pivot);
+    } while (arr[rightIndex] > pivot); //find the first value less than the pivot
 
     if (leftIndex >= rightIndex)
       return rightIndex;
@@ -34,8 +34,7 @@ int hoare_partition(std::vector<int>& arr, int lowIndex, int highIndex, stats_t&
 }
 
 void hoare_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
-  if (lowIndex >= highIndex)
-    return;
+  if (lowIndex >= highIndex) return;
 
   int pivotIndex = hoare_partition(arr, lowIndex, highIndex, loops, comparisons, swaps);
 
