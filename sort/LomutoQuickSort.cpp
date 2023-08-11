@@ -8,7 +8,7 @@
 #include "sort.hpp"
 
 int lomuto_partition(std::vector<int>& arr, int lowIndex, int highIndex, stats_t& loops, stats_t& comparisons, stats_t& swaps) {
-  int pivot = arr[highIndex];
+  int pivot = arr[highIndex]; //use the high index as the pivot position
 
   int currentPosition = lowIndex - 1;
 
@@ -35,12 +35,12 @@ void lomuto_quicksort(std::vector<int>& arr, int lowIndex, int highIndex, stats_
   if (lowIndex >= highIndex) return;
 
   //returns the index of the highest value in the lower array
-  int partitionIndex = lomuto_partition(arr, lowIndex, highIndex, loops, comparisons, swaps);
+  int pivotIndex = lomuto_partition(arr, lowIndex, highIndex, loops, comparisons, swaps);
 
   //sort with lower array
-  lomuto_quicksort(arr, lowIndex, partitionIndex - 1, loops, comparisons, swaps);
+  lomuto_quicksort(arr, lowIndex, pivotIndex - 1, loops, comparisons, swaps);
   //sort with higher array
-  lomuto_quicksort(arr, partitionIndex + 1, highIndex, loops, comparisons, swaps);
+  lomuto_quicksort(arr, pivotIndex + 1, highIndex, loops, comparisons, swaps);
 }
 
 //main entry

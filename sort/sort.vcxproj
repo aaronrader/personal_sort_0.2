@@ -27,6 +27,7 @@
     <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="LomutoQuickSort.cpp" />
+    <ClCompile Include="MergeSort.cpp" />
     <ClCompile Include="SelectionSort.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

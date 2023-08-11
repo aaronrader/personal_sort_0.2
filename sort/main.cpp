@@ -132,4 +132,15 @@ int main(int argc, char* argv[]) {
   loops = 0;
   comparisons = 0;
   swaps = 0;
+
+  //Merge Sort
+  std::cout << "Merge Sort" << std::endl;
+  merge(holdingArr, loops, comparisons, swaps);
+  sorted = isSorted(holdingArr);
+  print(loops, comparisons, swaps, sorted);
+  std::cout << std::endl;
+  holdingArr = numbers;
+  loops = 0;
+  comparisons = 0;
+  swaps = 0;
 }

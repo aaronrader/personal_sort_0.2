@@ -29,3 +29,4 @@ std::vector<int> insertion(std::vector<int>& arr, stats_t& loops, stats_t& compa
 std::vector<int> selection(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps);
 std::vector<int> lomuto_quick(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps);
 std::vector<int> hoare_quick(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps);
+std::vector<int> merge(std::vector<int>& arr, stats_t& loops, stats_t& comparisons, stats_t& swaps);
