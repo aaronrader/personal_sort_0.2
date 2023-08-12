@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Sort.hpp">
+    <ClInclude Include="Sorter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

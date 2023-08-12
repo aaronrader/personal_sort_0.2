@@ -1,6 +1,6 @@
 /*
 * Author:   Aaron Rader
-* Date:     09/2022
+* Date:     08/2023
 * Project:  sort
 * Summary:
 *     This program will read in a series of whitespace separated integers or use a predefined set
@@ -12,7 +12,14 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "sort.hpp"
+#include "SelectionSort.cpp"
+#include "InsertionSort.cpp"
+#include "BubbleSort.cpp"
+#include "LomutoQuickSort.cpp"
+#include "HoareQuickSort.cpp"
+#include "MergeSort.cpp"
+
+using namespace sort;
 
 void print(stats_t& loops, stats_t& comparisons, stats_t& swaps, bool& sorted) {
   std::cout << "The sort looped " << loops << " times, made " << comparisons << " comparisons, and performed "
@@ -53,7 +60,7 @@ int main(int argc, char* argv[]) {
   }
 
   //Title Information
-  std::cout << "Sorting Algorithms Compared - Aaron Rader, 2022\n" << std::endl;
+  std::cout << "Sorting Algorithms Compared - Aaron Rader, 2023\n" << std::endl;
 
   //Block to test for a sorted array
   //numbers.clear();
@@ -70,8 +77,14 @@ int main(int argc, char* argv[]) {
   stats_t loops = 0;
   stats_t comparisons = 0;
   stats_t swaps = 0;
+  BubbleSorter bubble_sorter;
+  InsertionSorter insertion_sorter;
+  SelectionSorter selection_sorter;
+  LomutoQuickSorter lomuto_sorter;
+  HoareQuickSorter hoare_sorter;
+  MergeSorter merge_sorter;
   std::vector<int> holdingArr = numbers;
-  bool sorted = isSorted(holdingArr);
+  bool sorted = Sorter::isSorted(holdingArr);
 
   std::cout << "Original Data" << std::endl;
   std::cout << "Array contains " << holdingArr.size() << " elements." << std::endl;
@@ -80,8 +93,8 @@ int main(int argc, char* argv[]) {
 
   //Bubble Sort
   std::cout << "Bubble Sort" << std::endl;
-  bubble(holdingArr, loops, comparisons, swaps);
-  sorted = isSorted(holdingArr);
+  bubble_sorter.sort(holdingArr, loops, comparisons, swaps);
+  sorted = Sorter::isSorted(holdingArr);
   print(loops, comparisons, swaps, sorted);
   std::cout << std::endl;
   holdingArr = numbers;
@@ -91,8 +104,8 @@ int main(int argc, char* argv[]) {
 
   //Insertion Sort
   std::cout << "Insertion Sort" << std::endl;
-  insertion(holdingArr, loops, comparisons, swaps);
-  sorted = isSorted(holdingArr);
+  insertion_sorter.sort(holdingArr, loops, comparisons, swaps);
+  sorted = Sorter::isSorted(holdingArr);
   print(loops, comparisons, swaps, sorted);
   std::cout << std::endl;
   holdingArr = numbers;
@@ -102,8 +115,8 @@ int main(int argc, char* argv[]) {
 
   //Selection Sort
   std::cout << "Selection Sort" << std::endl;
-  selection(holdingArr, loops, comparisons, swaps);
-  sorted = isSorted(holdingArr);
+  selection_sorter.sort(holdingArr, loops, comparisons, swaps);
+  sorted = Sorter::isSorted(holdingArr);
   print(loops, comparisons, swaps, sorted);
   std::cout << std::endl;
   holdingArr = numbers;
@@ -113,8 +126,8 @@ int main(int argc, char* argv[]) {
 
   //Lomuto's Quick Sort
   std::cout << "Lomuto's Quick Sort" << std::endl;
-  lomuto_quick(holdingArr, loops, comparisons, swaps);
-  sorted = isSorted(holdingArr);
+  lomuto_sorter.sort(holdingArr, loops, comparisons, swaps);
+  sorted = Sorter::isSorted(holdingArr);
   print(loops, comparisons, swaps, sorted);
   std::cout << std::endl;
   holdingArr = numbers;
@@ -124,8 +137,8 @@ int main(int argc, char* argv[]) {
 
   //Hoare's Quick Sort
   std::cout << "Hoare's Quick Sort" << std::endl;
-  hoare_quick(holdingArr, loops, comparisons, swaps);
-  sorted = isSorted(holdingArr);
+  hoare_sorter.sort(holdingArr, loops, comparisons, swaps);
+  sorted = Sorter::isSorted(holdingArr);
   print(loops, comparisons, swaps, sorted);
   std::cout << std::endl;
   holdingArr = numbers;
@@ -135,8 +148,8 @@ int main(int argc, char* argv[]) {
 
   //Merge Sort
   std::cout << "Merge Sort" << std::endl;
-  merge(holdingArr, loops, comparisons, swaps);
-  sorted = isSorted(holdingArr);
+  merge_sorter.sort(holdingArr, loops, comparisons, swaps);
+  sorted = Sorter::isSorted(holdingArr);
   print(loops, comparisons, swaps, sorted);
   std::cout << std::endl;
   holdingArr = numbers;
